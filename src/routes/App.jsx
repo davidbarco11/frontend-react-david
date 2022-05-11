@@ -1,25 +1,36 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route} from 'react-router-dom';
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Layout from '../containers/Layout';
 import Home from '../pages/Home';
 import Login from '../containers/Login';
-import peliculas from '../pages/peliculas';
-import pelicula from '../pages/pelicula';
-import categoria from '../pages/categoria';
+import Peliculas from '../pages/peliculas';
+import Pelicula from '../pages/pelicula';
+import Categoria from '../pages/categoria';
+import NotFound from '../pages/NotFound';
+import CrearPelicula from '../pages/CrearPelicula';
+import PrivateRoute from '../components/PrivateRoute';
+import PublicRoute from '../components/PublicRoute';
+
 
 
 const App = () => {
 	return (
 		<BrowserRouter>
 			<Layout>
-				<Switch>
-					<Route exact path="/" component={Home} />
-					<Route exact path="/login" component={Login} />
-					<Route exact path="/peliculas" component={peliculas} />
-					<Route exact path="/pelicula/:id" component={pelicula} />
-					<Route exact path="/categoria/:id" component={categoria} />
-					<Route path="*" />
-				</Switch>
+				
+				<Routes>
+					{/* estas dos rutas, la del home y login, solo pueden ser accedidas si no hay un token de usuario */}
+					<Route exact path="/" element={<PublicRoute><Home /></PublicRoute>} />
+					<Route exact path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+
+                    {/* estas rutas solo pueden ser accedidas si existe un usuario. */}
+					<Route exact path="/peliculas" element={<PrivateRoute><Peliculas /></PrivateRoute> } />
+					<Route exact path="/pelicula/:id" element={<PrivateRoute><Pelicula /></PrivateRoute>} />
+					<Route exact path="/categoria/:id" element={<PrivateRoute><Categoria/></PrivateRoute>} />
+					<Route exact path="/crearPelicula" element={<PrivateRoute><CrearPelicula /></PrivateRoute>} />
+					<Route path="*" element={<NotFound/>} />
+				</Routes>
+				
 			</Layout>
 			
 		</BrowserRouter>

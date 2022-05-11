@@ -15,11 +15,6 @@ const Peliculas = () => {
   }, []);
 
 
-  function handleClick (id){
-    //redirigir al componente de peliculas.
-		window.location = '/pelicula/'+id;
-  }
-
   return (
     <>
       <Header></Header>
@@ -48,13 +43,15 @@ const Peliculas = () => {
               <h5 className="card-title">{peliculas.name}</h5>
               <p className="card-text">{peliculas.descripcion}</p>
               <p className="card-text">{peliculas.año}</p>
+              <NavLink to={`/pelicula/${peliculas.id}`} style={{ backgroundColor: "#e50914", color: "white", textDecoration: "none" }}>
               <button
                 className="btn"
                 style={{ backgroundColor: "#e50914", color: "white" }}
-                onClick={() => handleClick(peliculas.id)}
               >
+
                 Ver
               </button>
+              </NavLink>
               
             </div>
           </div>
