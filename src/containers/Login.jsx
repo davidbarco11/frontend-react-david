@@ -1,6 +1,11 @@
 import React, { useRef } from "react";
 import postData from "../postData/postData";
+import { Link } from "react-router-dom";
 import "../styles/Login.css";
+
+//iconos fontawesome.
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 
 const Login = () => {
   const form = useRef(null);
@@ -13,9 +18,12 @@ const Login = () => {
     const getToken = true;
 
     //console.log(data);
-
-    //hacer la peticion a la url del backend
-
+    
+    //validar los campos
+    if (!email || !password) {
+      return alert("Debes diligenciar todos los campos");
+    }else{
+       //hacer la peticion a la url del backend
     postData("http://localhost:3001/api/login", {
       email,
       password,
@@ -33,16 +41,20 @@ const Login = () => {
         alert("no coinciden las credenciales.");
       }
     });
+    }
+    
   };
 
   return (
     <div className="login">
       <div className="form-container">
         <img src="./logos/logo_yard_sale.svg" alt="logo" className="logo" />
-        <h1 className="title" style={{color: 'white'}}>Login</h1>
+        <h1 className="title" style={{ color: "white" }}>
+          Login
+        </h1>
         <p className="subtitle">ingresa tu email y contraseña</p>
         <form action="/" className="form" ref={form}>
-          <label htmlFor="email" className="label">
+          <label htmlFor="email" className="label" style={{ color: "white" }}>
             Email
           </label>
           <input
@@ -51,7 +63,7 @@ const Login = () => {
             placeholder="email@email.com"
             className="input input-password"
           />
-          <label htmlFor="password" className="label">
+          <label htmlFor="password" className="label" style={{ color: "white" }}>
             Password
           </label>
           <input
@@ -66,6 +78,14 @@ const Login = () => {
             className="primary-button login-button"
             onClick={handleClick}
           />
+          <div style={{display: 'flex',justifyContent: 'center'}}>
+            <button className="btn btn-secondary">
+              <Link style={{ color: "white",textDecoration:"none"}} to="/register">
+              <FontAwesomeIcon icon={faArrowLeft} style={{marginRight: "10px"}}/>
+                Registrarse
+              </Link>
+            </button>
+          </div>
         </form>
       </div>
     </div>

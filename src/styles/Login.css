@@ -53,10 +53,10 @@
 	margin-bottom: 12px;
 }
 .primary-button {
-	background-color: white;
+	background-color: rgb(43, 93, 169);
 	border-radius: 8px;
 	border: none;
-	color: black;
+	color: white;
 	width: 100%;
 	cursor: pointer;
 	font-size: 12px;

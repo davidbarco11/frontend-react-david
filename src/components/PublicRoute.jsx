@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, {} from "react";
 import {Navigate,useLocation} from "react-router-dom";
-import postData from '../postData/postDataToken';
+//import postData from '../postData/postDataToken';
 
 const PublicRoute = ({ children }) => {
   //obtener el token del localstorage

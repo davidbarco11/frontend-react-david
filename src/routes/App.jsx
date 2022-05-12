@@ -10,6 +10,7 @@ import NotFound from '../pages/NotFound';
 import CrearPelicula from '../pages/CrearPelicula';
 import PrivateRoute from '../components/PrivateRoute';
 import PublicRoute from '../components/PublicRoute';
+import Register from '../containers/Register'
 
 
 
@@ -22,7 +23,7 @@ const App = () => {
 					{/* estas dos rutas, la del home y login, solo pueden ser accedidas si no hay un token de usuario */}
 					<Route exact path="/" element={<PublicRoute><Home /></PublicRoute>} />
 					<Route exact path="/login" element={<PublicRoute><Login /></PublicRoute>} />
-
+                    <Route exact path="/register" element={<PublicRoute><Register /></PublicRoute>} />
                     {/* estas rutas solo pueden ser accedidas si existe un usuario. */}
 					<Route exact path="/peliculas" element={<PrivateRoute><Peliculas /></PrivateRoute> } />
 					<Route exact path="/pelicula/:id" element={<PrivateRoute><Pelicula /></PrivateRoute>} />

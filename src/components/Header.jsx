@@ -9,7 +9,7 @@ const Header = () => {
   const fotoUser = JSON.parse(localStorage.getItem('usuario'))[0].image;
   let foto = "";
 
-  if(!fotoUser) {
+  if(!fotoUser || fotoUser === null || fotoUser === "null") {
     foto = "https://w7.pngwing.com/pngs/1004/160/png-transparent-computer-icons-user-profile-social-web-others-blue-social-media-desktop-wallpaper.png"
   }else{
     foto = rutaFoto + fotoUser;
