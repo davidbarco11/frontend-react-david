@@ -14,16 +14,28 @@ const Categoria = () => {
   useEffect(() => {
     fetch(`http://localhost:3001/api/movie-category/${id}`)
     .then((response) => response.json())
-    .then((data) => setCategoria(data.movie));
+    .then((data) => {
+       if(data.status === "ok"){
+         setCategoria(data.movie)
+       }else{
+        alert("No hay peliculas para esta categoria");
+        //redirigir al componente de peliculas.
+        window.location = "/peliculas";
+       }
+
+
+    });
 
   }, [id]);
+
+  //console.log(categoria);
 
   return (
     <>
       <Header></Header>
       <div
         className="peliculas"
-        style={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}
+        style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", padding: "80px" }}
       >
         {categoria.map((categoria) => (
           <div
@@ -40,7 +52,7 @@ const Categoria = () => {
               
               className="card-img-top"
               alt={categoria.name}
-              style={{ width: "286px", height: "350px" }}
+              style={{ width: "100%", height: "350px" }}
             />
             <div className="card-body" style={{backgroundColor: "#270d46",color: "white"}}>
               <h5 className="card-title">{categoria.nombre}</h5>

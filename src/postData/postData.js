@@ -7,7 +7,7 @@
               cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
               credentials: 'same-origin', // include, *same-origin, omit
               headers: {
-                'Authorization': "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE0LCJuYW1lIjoiYW5pdGFzIiwic3VybmFtZSI6Imh1cnRhZG8iLCJlbWFpbCI6ImFuaXRhQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImltYWdlIjoiU0JYRXNlZVBfbjk0UUxiTzcxUmxNN1h3LnBuZyIsImlhdCI6MTY1MTk0MDQ5OSwiZXhwIjoxNjU0NTMyNDk5fQ.Z1TmamMlvmPpw6Vjg85UIUzt83_nD0kTEJzdGdJEA34",
+                'Authorization': data.token1,
                 'Content-Type': 'application/json'
                 // 'Content-Type': 'application/x-www-form-urlencoded',
               },

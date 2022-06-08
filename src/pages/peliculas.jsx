@@ -20,7 +20,7 @@ const Peliculas = () => {
       <Header></Header>
       <div
         className="peliculas"
-        style={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}
+        style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", padding: "80px" }}
       >
         {peliculas.map((peliculas) => (
           <div
@@ -37,7 +37,7 @@ const Peliculas = () => {
               
               className="card-img-top"
               alt={peliculas.name}
-              style={{ width: "286px", height: "350px" }}
+              style={{ width: "100%", height: "350px" }}
             />
             <div className="card-body" style={{backgroundColor: "#270d46",color: "white"}}>
               <h5 className="card-title">{peliculas.name}</h5>

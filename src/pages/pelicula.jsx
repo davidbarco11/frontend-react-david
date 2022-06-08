@@ -14,15 +14,13 @@ const Pelicula = () => {
       .then((response) => response.json())
       .then((data) => setPelicula(data.movie));
   }, [id]);
-
-  console.log(pelicula);
-
+  //console.log(pelicula);
   return (
     <>
       <Header></Header>
       <div
         className="peliculas"
-        style={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}
+        style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", padding: "80px"  }}
       >
         {pelicula.map((pelicula) => (
           <div
@@ -34,7 +32,7 @@ const Pelicula = () => {
               boxShadow: "0px 0px 14px 3px #5d14a6a8",
             }}
           >
-            <video width="100%" height="100%" controls>
+            <video width="100%" height="100%" controls poster={`http://localhost:3001/api/image/${pelicula.image}`}>
               <source
                 src={`http://localhost:3001/api/video/${pelicula.video}`}
               />

@@ -4,7 +4,7 @@
 	height: 100vh;
 	display: grid;
 	place-items: center;
-	background-color: #2f353a;
+	background-color: #000f18;
 }
 .form-container {
 	display: grid;
@@ -53,7 +53,7 @@
 	margin-bottom: 12px;
 }
 .primary-button {
-	background-color: rgb(43, 93, 169);
+	background-color: #c42f3e;
 	border-radius: 8px;
 	border: none;
 	color: white;

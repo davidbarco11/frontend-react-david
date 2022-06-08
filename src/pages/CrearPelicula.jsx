@@ -7,6 +7,9 @@ const CrearPelicula = () => {
   //state para inicializar el arreglo vacio de las categorias.
   const [categorias, setCategorias] = useState([]);
 
+  //token del usuario logueado.
+  const token1 = localStorage.getItem('token');
+
   //cargar las peliculas al entrar al componente.
   useEffect(() => {
     fetch("http://localhost:3001/api/categories")
@@ -41,23 +44,24 @@ const CrearPelicula = () => {
         año,
         id_categoria,
         descripcion,
+        token1
       }).then((data) => {
         //si data devuelve: listo. quiere decir que recibio todo bien y puede redirigir al componente de peliculas
         if (data.message === "exitoso") {
              
           const idPelicula = "25"   //data;
           
-          console.log(image,video)
+          //console.log(image,video)
           let data1 = [{
             image: image,
             video: video
           }]
-         console.log(data1)
+         //console.log(data1)
           //despues de crear la pelicula, subimos los archivos de imagen y videos
 
           postData(`http://localhost:3001/api/upload-image/${idPelicula}`, ({data1}))
           .then((data) => {
-            console.log("datas", data);
+            //console.log("datas", data);
         //si data devuelve: listo. quiere decir que recibio todo bien y puede redirigir al componente de peliculas
         if (data.message === "success") {
 
@@ -89,15 +93,17 @@ const CrearPelicula = () => {
 
       <div
         style={{
-          padding: "70px",
-          backgroundColor: "#2f353a",
+          
+          padding: "80px",
+          backgroundColor: "#000f18",
           display: "flex",
           justifyContent: "center",
         }}
       >
         <form
           style={{
-            padding: "30px",
+            marginTop: "40px",
+            padding: "25px",
             width: "100%",
             boxShadow: "0px 0px 18px 5px purple",
             borderRadius: "13px",
@@ -143,8 +149,9 @@ const CrearPelicula = () => {
               className="form-select"
               aria-label="Default select example"
               name="id_categoria"
+              defaultValue={"default"}
             >
-              <option selected value="">
+              <option disabled={true} value={"default"}>
                 Selecciona un género
               </option>
               {categorias.map((categorias) => (
@@ -191,7 +198,7 @@ const CrearPelicula = () => {
             <button
               onClick={handleClick}
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-danger"
             >
               Crear
             </button>

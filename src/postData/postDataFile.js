@@ -1,7 +1,7 @@
 		// Ejemplo implementando el metodo POST:
         async function postDataFile(url = '', data = {}) {
 
-          console.log("response", data)
+          //console.log("response", data)
             // Opciones por defecto estan marcadas con un *
             const response = await fetch(url, {
               method: 'POST', // *GET, POST, PUT, DELETE, etc.
