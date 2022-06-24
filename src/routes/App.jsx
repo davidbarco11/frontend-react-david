@@ -4,6 +4,7 @@ import Layout from '../containers/Layout';
 import Login from '../containers/Login';
 import Peliculas from '../pages/peliculas';
 import Pelicula from '../pages/pelicula';
+import EditarPelicula from '../pages/editarPelicula';
 import Categoria from '../pages/categoria';
 import NotFound from '../pages/NotFound';
 import CrearPelicula from '../pages/CrearPelicula';
@@ -27,6 +28,7 @@ const App = () => {
                     {/* estas rutas solo pueden ser accedidas si existe un usuario. */}
 					<Route exact path="/peliculas" element={<PrivateRoute><Peliculas /></PrivateRoute> } />
 					<Route exact path="/pelicula/:id" element={<PrivateRoute><Pelicula /></PrivateRoute>} />
+					<Route exact path="/pelicula-editar/:id" element={<PrivateRoute><EditarPelicula /></PrivateRoute>} />
 					<Route exact path="/categoria/:id" element={<PrivateRoute><Categoria/></PrivateRoute>} />
 					<Route exact path="/crearPelicula" element={<PrivateRoute><CrearPelicula /></PrivateRoute>} />
 					<Route exact path="/crearCategoria" element={<PrivateRoute><CrearCategoria /></PrivateRoute>} />

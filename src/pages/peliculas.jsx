@@ -43,6 +43,7 @@ const Peliculas = () => {
               <h5 className="card-title">{peliculas.name}</h5>
               <p className="card-text">{peliculas.descripcion}</p>
               <p className="card-text">{peliculas.año}</p>
+              <div style={{ display: 'flex', justifyContent: 'space-around', width: "100%"}}>
               <NavLink to={`/pelicula/${peliculas.id}`} style={{ backgroundColor: "#e50914", color: "white", textDecoration: "none" }}>
               <button
                 className="btn"
@@ -52,6 +53,19 @@ const Peliculas = () => {
                 Ver
               </button>
               </NavLink>
+
+              <NavLink to={`/pelicula-editar/${peliculas.id}`} style={{ backgroundColor: "#b0b014", color: "white", textDecoration: "none" }}>
+              <button
+                className="btn"
+                style={{ backgroundColor: "#b0b014", color: "white"}}
+              >
+
+                Editar
+              </button>
+              </NavLink>
+
+              </div>
+             
               
             </div>
           </div>
