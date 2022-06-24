@@ -48,39 +48,37 @@ const CrearPelicula = () => {
       }).then((data) => {
         //si data devuelve: listo. quiere decir que recibio todo bien y puede redirigir al componente de peliculas
         if (data.message === "exitoso") {
-             
-          const idPelicula = "25"   //data;
           
-          //console.log(image,video)
-          let data1 = [{
-            image: image,
-            video: video
-          }]
-         //console.log(data1)
+          const idPelicula = data.result.insertId
+          
           //despues de crear la pelicula, subimos los archivos de imagen y videos
+          let headersList = {
+            "Accept": "*/*",
+            "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+            "Authorization": token1
+           }
 
-          postData(`http://localhost:3001/api/upload-image/${idPelicula}`, ({data1}))
-          .then((data) => {
-            //console.log("datas", data);
-        //si data devuelve: listo. quiere decir que recibio todo bien y puede redirigir al componente de peliculas
-        if (data.message === "success") {
+          fetch(`http://localhost:3001/api/upload-image/${idPelicula}`, { 
+          method: "POST",
+          body: formData,
+          headers: headersList
+        }).then(response => response.json())
+        .then((data) => {
+            //si data devuelve: listo. quiere decir que recibio todo bien y puede redirigir al componente de peliculas
+        if (data.status === "success") {
 
           //despues de crear la pelicula, subimos los archivos de imagen y videos
           
-          alert("imagen y video subido con exito");
+          alert("se creo la pelicula con imagen y video exitosamente.");
           //redirigir al componente de peliculas.
           window.location = "/peliculas";
         } else {
           alert("se creo la pelicula, pero no se pudo subir los archivos.");
           window.location = "/peliculas";
         }
-      });
-      //fin de subir imagen y archivo.
-/* 
-          alert("pelicula creada con existo");
-          //redirigir al componente de peliculas.
-          window.location = "/peliculas"; */
-        } else {
+        });
+        
+      } else {
           alert("no se pudo crear la pelicula.");
         }
       });
