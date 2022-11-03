@@ -1,5 +1,4 @@
 import React, {useRef} from 'react';
-import Header from "../components/Header";
 import postData from "../postData/postData";
 
 const CrearCategoria = () => {
@@ -39,7 +38,6 @@ const CrearCategoria = () => {
   
     return (
       <>
-        <Header></Header>
         <div
         style={{
           padding: "80px",

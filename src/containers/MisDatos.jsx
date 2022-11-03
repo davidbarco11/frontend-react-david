@@ -1,6 +1,4 @@
 import React, {useRef} from "react";
-import Header from "../components/Header";
-import putData from "../postData/putData";
 
 
 const MisDatos = () => {
@@ -91,7 +89,7 @@ const MisDatos = () => {
 
   return (
     <>
-    <Header></Header>
+    
     <div className="container d-flex justify-content-center" style={{padding: "60px"}}>
     <form className="form-container" style={{marginTop: "40px"}} ref={form}>
         <h3 className="text-white mb-3">Datos de usuario</h3>

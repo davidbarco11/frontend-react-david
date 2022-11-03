@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Header from "../components/Header";
 import { NavLink} from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -32,7 +31,6 @@ const Categoria = () => {
 
   return (
     <>
-      <Header></Header>
       <div
         className="peliculas"
         style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", padding: "80px" }}

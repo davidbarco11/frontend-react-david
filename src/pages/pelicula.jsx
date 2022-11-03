@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Header from "../components/Header";
 import { useParams } from "react-router-dom";
 
 const Pelicula = () => {
@@ -17,7 +16,6 @@ const Pelicula = () => {
   //console.log(pelicula);
   return (
     <>
-      <Header></Header>
       <div
         className="peliculas"
         style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", padding: "80px"  }}

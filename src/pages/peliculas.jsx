@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Peliculas.css";
-import Header from "../components/Header";
 import { NavLink } from "react-router-dom";
 
 const Peliculas = () => {
@@ -17,7 +16,6 @@ const Peliculas = () => {
 
   return (
     <>
-      <Header></Header>
       <div
         className="peliculas"
         style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", padding: "80px" }}

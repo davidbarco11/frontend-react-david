@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import Header from "../components/Header";
 import putData from "../postData/putData";
 import { useParams } from "react-router-dom";
 
@@ -101,7 +100,6 @@ const EditarPelicula = () => {
 
   return (
     <>
-      <Header></Header>
 
       <div
         style={{

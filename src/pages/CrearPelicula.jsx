@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import Header from "../components/Header";
 import postData from "../postData/postData";
 //import postDataFile from "../postData/postDataFile"
 
@@ -87,8 +86,7 @@ const CrearPelicula = () => {
 
   return (
     <>
-      <Header></Header>
-
+     
       <div
         style={{
           
